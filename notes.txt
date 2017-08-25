@@ -1,0 +1,8 @@
+divide playfield into zones, see if I can move a card from one zone to another
+if so then have shuffle function
+  shuffle function, takes all child nodes card from div and delete them + remake them in shuffled order
+
+then make otherr fucntions like draw hand
+  take 7 cards from deck, remove them from deckzone div and add them to hand div
+
+still need to figure out the card movement things
