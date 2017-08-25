@@ -10,12 +10,33 @@
 // =================================================================================
 class Deck {
   constructor() {
+    // make all the cards add them to cards list
     var suits = ["Clubs", "Hearts", "Diamonds", "Spades"];
     var values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
     this.cards = [];
     for (var i = 0; i < suits.length; i++) 
       for (var j = 0; j < values.length; j++) 
         this.cards.push(new Card(values[j], suits[i]));
+
+
+    // make a the deckzone div visible
+    // add all the cards in (this.)cards list as children of deck div
+    var deckZone = document.getElementById('deckZone');
+    deckZone.style.visibility = 'visible';
+
+    for (var i = 0; i < this.cards.length; i ++) {
+      var cardDiv = document.createElement('div');
+      cardDiv.id = this.cards[i].name;
+      cardDiv.className = 'card' + ' red';
+      cardDiv.innerHTML = this.cards[i].name;
+      deckZone.appendChild(cardDiv);
+      cardDiv.onclick = function () {
+        $( function() {
+          $(".card").draggable();
+        });
+        cardDiv.style.position = "relative";
+      }
+    }
   } 
 
   shuffle() {
@@ -37,31 +58,7 @@ class Card {
     this.suit = suit;
     this.name = this.suit + "_" + this.value;
 
-    var cardDiv = document.createElement('div');
-    cardDiv.id = this.name;
-    cardDiv.className = 'card' + ' red';
-    cardDiv.innerHTML = this.name;
-    console.log("adding card");
-    document.getElementById("playfield").appendChild(cardDiv);
-    $( function() {
-      $(".card").draggable();
-    });
-
-    cardDiv.onclick = function () {
-      console.log("flipping card");
-      // if revealed, flip uspide down
-      if (!this.classList.contains("red")) {
-        this.classList.add("red");
-        console.log("turning upside down");
-        console.log(this.id);
-       }
-      else {
-        this.classList.remove("red");
-        console.log("turning upside down");
-        console.log(this.id);
-      }
     }
-  }
 }
 
 
@@ -76,7 +73,6 @@ function drawCard() {
 }
 function initDeck () {
   deck = new Deck();
-  document.getElementById("deck").style.visibility = "visible";
   return;
 }
 

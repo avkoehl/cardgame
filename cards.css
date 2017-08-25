@@ -6,7 +6,7 @@ body {
 }
 
 
-#deck {
+#deckZone {
   border: 1px solid #333;
   background-color: pink;
   height: 220px;
@@ -30,15 +30,15 @@ body {
   display:inline-block;
   text-align:center;
   margin:5px;
-  padding:18px 15px 0 15px;
+  padding:10px 10px 0 10px;
   width:70px;
   height:40px;
-
-  position: relative;
-  
-  font-size:12px;
+  font-size: 11px;
   background-color:#999999;
   border: solid 1px black;
+
+  position: absolute; 
+  
 }
 
 .red {
