@@ -92,34 +92,18 @@ function shuffle() {
 }
 
 // =================================================================================
-// DRAGGING FUNCTIONS
+// MISCELLANEOUS FUNCTIONS
 // =================================================================================
 
 
-/*
 
-function shuffle() {
-//https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  for (var i = cards.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = cards[i];
-    cards[i] = cards[j];
-    cards[j] = temp;
-  }
-  for (i = 0; i < cards.length; i++) {
-    console.log(cards.name);
-  }
-  return cards;
-}
-
-  function lessThan(this, Card){
-    if indexOf(this.suit) < indexOf(Card.suit):
-      return true
-    if indexOf(this.suit) > indexOf(Card.suit):
-      return false
-    else:
-      return this.value < Card.value
-  }
-/*
+//function lessThan(this, Card){
+//  if indexOf(this.suit) < indexOf(Card.suit):
+//    return true
+//  if indexOf(this.suit) > indexOf(Card.suit):
+//    return false
+//  else:
+//    return this.value < Card.value
+//}
 
 
