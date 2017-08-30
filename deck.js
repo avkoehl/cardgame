@@ -1,9 +1,6 @@
-// NOT USING CANVAS
-// just div card with some classes = faceup facedown
-// look up drag div function 
-// moving the create div to the deck rather than on the card
-// try to fiugre out how to get the deck to stack in one place
 // make a draw function
+// make a flip up and down on click function
+// make different zones "deck, playfield ...
 
 // =================================================================================
 // Deck Class
@@ -12,32 +9,17 @@ class Deck {
   constructor() {
     // make all the cards add them to cards list
     var suits = ["Clubs", "Hearts", "Diamonds", "Spades"];
-    var values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
+    var values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     this.cards = [];
     for (var i = 0; i < suits.length; i++) 
       for (var j = 0; j < values.length; j++) 
         this.cards.push(new Card(values[j], suits[i]));
 
+        // make a the deckzone div visible
+        var deckZone = document.getElementById('deckZone');
+        deckZone.style.visibility = 'visible';
 
-    // make a the deckzone div visible
-    // add all the cards in (this.)cards list as children of deck div
-    var deckZone = document.getElementById('deckZone');
-    deckZone.style.visibility = 'visible';
-
-    for (var i = 0; i < this.cards.length; i ++) {
-      var cardDiv = document.createElement('div');
-      cardDiv.id = this.cards[i].name;
-      cardDiv.className = 'card' + ' red';
-      cardDiv.innerHTML = this.cards[i].name;
-      deckZone.appendChild(cardDiv);
-      cardDiv.onclick = function () {
-        $( function() {
-          $(".card").draggable();
-        });
-        cardDiv.style.position = "relative";
-      }
-    }
-  } 
+  }// constructor
 
   shuffle() {
     for (var i = this.cards.length - 1; i > 0; i--) {
@@ -46,20 +28,53 @@ class Deck {
       this.cards[i] = this.cards[j];
       this.cards[j] = temp;
      }
-  } 
-}
+  }// shuffle 
+}//deck Class
 
 // =================================================================================
 // Card Class
 // =================================================================================
-class Card {
-  constructor(value, suit){
+class Card 
+{
+  constructor(value, suit)
+  {
     this.value = value;
     this.suit = suit;
     this.name = this.suit + "_" + this.value;
 
+    var cardDiv = document.createElement('div');
+    cardDiv.id = this.name;
+    cardDiv.className = 'card';
+
+    if (this.suit == "Clubs") {
+      cardDiv.innerHTML = '\u2663' + this.value;
+      cardDiv.classList.add("black");
     }
-}
+
+    else if (this.suit == "Hearts") {
+      cardDiv.innerHTML = '\u2661' + this.value;
+      cardDiv.classList.add("red");
+    }
+
+    else if (this.suit == "Diamonds") {
+      cardDiv.innerHTML = '\u2662' + this.value;
+      cardDiv.classList.add("red");
+    }
+
+    else {
+      cardDiv.innerHTML = '\u2663' + this.value;
+      cardDiv.classList.add("black");
+    }
+
+    deckZone.appendChild(cardDiv);
+
+    $( function () 
+    {
+      $('#' + cardDiv.id).draggable();
+    });//draggable
+
+  }//constructor
+}//class
 
 
 
