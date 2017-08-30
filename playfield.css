@@ -1,16 +1,13 @@
 body {
-  height: 1000px;
-  width: 1500px;
   background-color: #dddddd;
   margin: auto;
 }
 
 #board {
   margin: auto;
-  padding: 10px;
-  width: 100%;
-  min-height: 700px;
-  height: 70%;
+  overflow: hidden;
+  height: 600px;
+  width: 1500px;
   display: block;
   background-color: #59887b;
 }
@@ -21,7 +18,6 @@ body {
   background-color: pink;
   height: 220px;
   width: 150px;
-  padding: 20px;
 }
 
 #discardZone {
@@ -30,7 +26,6 @@ body {
   background-color: lightblue;
   height: 220px;
   width: 100px;
-  padding: 20px;
 }
 
 #handZone {

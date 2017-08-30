@@ -1,6 +1,15 @@
 // make a draw function
 // make a flip up and down on click function
 // make different zones "deck, playfield ...
+$( function() {
+  $( "#board, #discardZone, #deckZone, #playfieldZone, #handZone" ).droppable({
+    drop: function( event, ui ) {
+       var dropped = document.getElementById(ui.draggable.context.id);
+       var droppedOn = document.getElementById(this.id);
+       $(dropped).detach().appendTo(droppedOn);
+    }
+  });
+} );
 
 // =================================================================================
 // Deck Class
@@ -71,7 +80,7 @@ class Card
     $( function () 
     {
       $('#' + cardDiv.id).draggable();
-    });//draggable
+    });//function
 
   }//constructor
 }//class
