@@ -1,6 +1,7 @@
 body {
   background-color: #dddddd;
   margin: auto;
+  padding: 10px;
 }
 
 #board {
@@ -10,10 +11,14 @@ body {
   width: 1500px;
   display: block;
   background-color: #59887b;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #deckZone {
-  display: block;
+  display: inline-block;
+  overflow: hidden;
   border: 1px solid #333;
   background-color: pink;
   height: 220px;
@@ -21,17 +26,20 @@ body {
 }
 
 #discardZone {
-  display: block;
+  display: inline-block;
+  overflow: hidden;
   border: 1px solid #333;
   background-color: lightblue;
   height: 220px;
-  width: 100px;
+  width: 150px;
 }
 
 #handZone {
-  display: block;
+  margin: auto;
+  display: inline-block;
   border: 1px solid #333;
   background-color: grey;
-  width: 100%;
+  width: 1500px;
   height: 220px;
+  display: flex;
 }

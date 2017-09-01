@@ -2,11 +2,24 @@
 // make a flip up and down on click function
 // make different zones "deck, playfield ...
 $( function() {
-  $( "#board, #discardZone, #deckZone, #playfieldZone, #handZone" ).droppable({
+  $( "#board, #playfieldZone, #handZone" ).droppable({
     drop: function( event, ui ) {
        var dropped = document.getElementById(ui.draggable.context.id);
        var droppedOn = document.getElementById(this.id);
        $(dropped).detach().appendTo(droppedOn);
+       $(dropped).css({position: 'relative'});
+       $(dropped).css({top: '0px', left: '0px'});
+    }
+  });
+} );
+$( function() {
+  $( "#discardZone, #deckZone" ).droppable({
+    drop: function( event, ui ) {
+       var dropped = document.getElementById(ui.draggable.context.id);
+       var droppedOn = document.getElementById(this.id);
+       $(dropped).detach().appendTo(droppedOn);
+       $(dropped).css({top: '0px', left: '0px'});
+       $(dropped).css({position: 'relative'});
     }
   });
 } );
@@ -54,24 +67,34 @@ class Card
     var cardDiv = document.createElement('div');
     cardDiv.id = this.name;
     cardDiv.className = 'card';
+    cardDiv.classList.add('facedown');
+
+    cardDiv.onclick = function () {
+      if (cardDiv.classList.contains('facedown')) {
+        cardDiv.classList.remove('facedown');
+      }
+      else {
+        cardDiv.classList.add('facedown');
+      }
+    }//onclick
 
     if (this.suit == "Clubs") {
-      cardDiv.innerHTML = '\u2663' + this.value;
-      cardDiv.classList.add("black");
+        cardDiv.innerHTML = '\u2663' + this.value;
+        cardDiv.classList.add("black");
     }
 
     else if (this.suit == "Hearts") {
-      cardDiv.innerHTML = '\u2661' + this.value;
+      cardDiv.innerHTML = '\u2665' + this.value;
       cardDiv.classList.add("red");
     }
 
     else if (this.suit == "Diamonds") {
-      cardDiv.innerHTML = '\u2662' + this.value;
+      cardDiv.innerHTML = '\u2666' + this.value;
       cardDiv.classList.add("red");
-    }
+     }
 
     else {
-      cardDiv.innerHTML = '\u2663' + this.value;
+      cardDiv.innerHTML = '\u2660' + this.value;
       cardDiv.classList.add("black");
     }
 
@@ -79,10 +102,14 @@ class Card
 
     $( function () 
     {
-      $('#' + cardDiv.id).draggable();
+      $('#' + cardDiv.id).draggable( {
+        stack: '#'+cardDiv.id,
+        zIndex: 10000
+    });//draggable function
     });//function
 
   }//constructor
+
 }//class
 
 
