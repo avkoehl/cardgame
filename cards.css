@@ -13,17 +13,8 @@
 }
 
 .facedown {
-  display:inline-block;
-  text-align:center;
-  width: 120px;
-  height: 200px;
-
-  margin:5px;
-  padding:10px 10px 0 10px;
-  font-size: 0px;
   background-color:#e55451;
-  border: solid 1px black;
-  position: absolute; 
+  font-size: 0px;
 }
 
 .red {

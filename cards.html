@@ -8,27 +8,19 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="deck.js"></script>
+  <script src="drag.js"></script>
 </head>
 <body>
   </script>
 </head>
 
-<body>
-	<h2> Card Game </h2>
-  <br>
-
-  <button class="button" id="makeDeck" onclick="initDeck()"> make deck </button> 
-  <button class="button" id="shuffle" onclick="shuffle()"> shuffle deck </button> 
-  <button class="button" id="drawCard" onclick="drawCard()">drawCard </button> 
-
-  <br>
-  <br>
-  <div id="board"> 
-      <div id="deckZone"> </div> 
-      <div id="discardZone"></div> 
-      <div id="playfieldZone"></div>
-  </div>
-      <div id="handZone"></div>
+<body onload="initDeck()">
+      <div id="board" >
+        <div id="playfield"></div>
+        <div id="deckZone"> </div> 
+        <div id="handZone"></div>
+        <div id="discardZone"></div> 
+      </div>
 
 
 </body>

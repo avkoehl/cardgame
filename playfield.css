@@ -1,42 +1,42 @@
 body {
-  background-color: #dddddd;
+  background-color: #333;
   margin: auto;
   padding: 10px;
 }
 
 #board {
-  margin: auto;
-  height: 600px;
-  width: 1500px;
-  display: block;
-  background-color: #59887b;
   display: flex;
+  width: 1300px;
+  height: 720px;
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: flex-start;
+  margin: auto;
+}
+
+#playfield {
+  width: 1300px;
+  height: 500px;
+  background-color: #59887b;
+  display: flex;
+  border-bottom: 1px solid black;
 }
 
 #deckZone {
-  display: inline-block;
-  border: 1px solid #333;
   background-color: pink;
   height: 220px;
   width: 150px;
 }
 
 #discardZone {
-  display: inline-block;
-  border: 1px solid #333;
   background-color: lightblue;
   height: 220px;
   width: 150px;
 }
 
 #handZone {
-  margin: auto;
-  display: inline-block;
-  border: 1px solid #333;
   background-color: grey;
-  width: 1500px;
+  width: 1000px;
   height: 220px;
   display: flex;
 }
