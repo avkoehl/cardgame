@@ -1,10 +1,10 @@
 .card {
   display:inline-block;
   text-align:center;
-  width: 120px;
-  height: 200px;
+  width: 130px;
+  height: 210px;
 
-  margin:5px;
+  margin:0px;
   padding:10px 10px 0 10px;
   font-size: 52px;
   background-color:white;

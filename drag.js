@@ -1,14 +1,24 @@
 $( function() 
 {
-  $( "#playfieldZone, #handZone" ).droppable(
+  $( "#playfield, #handZone" ).droppable(
   {
     drop: function( event, ui ) 
     {
+       
        var dropped = document.getElementById(ui.draggable.context.id);
        var droppedOn = document.getElementById(this.id);
+       var droppedParent = dropped.parentElement.id;
+       console.log(droppedParent);
+
+       if (droppedParent) {
+         deck.returnCard();
+         deck.drawCard();
+        }
+
        $(dropped).detach().appendTo(droppedOn);
        $(dropped).css({position: 'relative'});
-       $(dropped).css({top: '0px', left: '0px'});
+       $(dropped).css({top: '10px', left: '10px'});
+
     }//drop
   });//droppable
 } );//function
@@ -23,14 +33,7 @@ $( function()
     {
        var dropped = document.getElementById(ui.draggable.context.id);
        var droppedOn = document.getElementById(this.id);
-       var cards = droppedOn.getElementsByClassName('card');
-       console.log(cards);
-
-       for (i = 0; i < cards.length(); i++)
-       {
-         var id = cards[i].id;
-         $(id).css({visibility: 'hidden'});
-       }
+       returncard();
 
        $(dropped).detach().appendTo(droppedOn);
        $(dropped).css({top: '0px', left: '0px'});

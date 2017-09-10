@@ -5,19 +5,13 @@ function initDeck()
 {
   deck = new Deck();
   deck.drawCard();
-  var card = document.getElementById(deck.cards[0].name);
-  card.classList.add('ui-draggable');
-  $('#' + card.id).draggable();
+  //var card = document.getElementById(deck.inplay[0].name);
+  //card.classList.add('ui-draggable');
+  //$('#' + card.id).draggable();
+  console.log(deck.cards.length);
+  console.log(deck.inplay.length);
   return;
 }
-
-
-
-
-
-
-
-
 
 
 // =================================================================================
@@ -38,8 +32,26 @@ class Deck {
 
   drawCard() {
     this.cards[0].addToPage();
-    this.inplay[0] = this.cards[0];
+    this.inplay.unshift(this.cards[0]);
+    var card = document.getElementById(deck.inplay[0].name);
+    card.classList.add('ui-draggable');
+    $('#' + card.id).draggable(
+      {
+        start: function (event, ui)
+        {
+          deck.drawCard();
+        }
+      });
+    this.cards.splice(0,2);
   }//drawCard
+
+  returnCard() {
+    var parent = document.getElementById('deckZone');
+    card = parent.getElementsByClassName('card');
+    this.cards.unshift(inplay[0]);
+    console.log(card);
+  }
+
 
   shuffle() {
     for (var i = this.cards.length - 1; i > 0; i--) {
