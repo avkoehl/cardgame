@@ -32,8 +32,8 @@ class Deck {
 
   drawCard() {
     this.cards[0].addToPage();
-    this.inplay.unshift(this.cards[0]);
-    var card = document.getElementById(deck.inplay[0].name);
+  //  this.inplay.unshift(this.cards[0]);
+    var card = document.getElementById(this.cards[0].name);
     card.classList.add('ui-draggable');
     $('#' + card.id).draggable(
       {
@@ -44,14 +44,6 @@ class Deck {
       });
     this.cards.splice(0,2);
   }//drawCard
-
-  returnCard() {
-    var parent = document.getElementById('deckZone');
-    card = parent.getElementsByClassName('card');
-    this.cards.unshift(inplay[0]);
-    console.log(card);
-  }
-
 
   shuffle() {
     for (var i = this.cards.length - 1; i > 0; i--) {
