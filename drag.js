@@ -22,7 +22,7 @@ $( function()
 
       $(dropped).detach().appendTo(droppedOn);
       $(dropped).css({position: 'relative'});
-      $(dropped).css({top: '10px', left: '10px'});
+      $(dropped).css({top: '0px', left: '0px'});
     }//drop
   });//droppable
 });//function
